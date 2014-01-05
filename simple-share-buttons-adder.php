@@ -89,6 +89,7 @@ GNU General Public License for more details.
 		add_option('ssba_custom_buffer', 		'');
 		add_option('ssba_custom_flattr', 		'');
 		add_option('ssba_custom_tumblr', 		'');
+		add_option('ssba_custom_line',			'');
 	}
 	
 	// uninstall ssba
@@ -154,6 +155,7 @@ GNU General Public License for more details.
 		delete_option('ssba_custom_buffer');
 		delete_option('ssba_custom_flattr');
 		delete_option('ssba_custom_tumblr');
+		delete_option('ssba_custom_line');
 	}
 
 	// --------- ADMIN BITS ------------ //
@@ -1318,6 +1320,33 @@ function ssba_tumblr($arrSettings, $urlCurrentPage, $strPageTitle, $booShowShare
 	
 		// show custom image
 		$htmlShareButtons .= '<img title="tumblr" class="ssba" src="' . $arrSettings['ssba_custom_tumblr'] . '" alt="tumblr" />';
+	}
+	
+	// close href
+	$htmlShareButtons .= '</a>';
+	
+	// return share buttons
+	return $htmlShareButtons;
+}
+
+// get line button
+function ssba_line($arrSettings, $urlCurrentPage, $strPageTitle, $booShowShareCount) {
+
+	// email share link
+	$htmlShareButtons .= '<a id="ssba_line_share" href="http://line.naver.jp/R/msg/text/?' . $strPageTitle . '%0D%0A' . $urlCurrentPage  . '">';
+	
+	// if image set is not custom
+	if ($arrSettings['ssba_image_set'] != 'custom') {
+	
+		// show ssba image
+		$htmlShareButtons .= '<img title="LINE" class="ssba" alt="LINE" src="' . WP_PLUGIN_URL . '/simple-share-buttons-adder/buttons/' . $arrSettings['ssba_image_set'] . '/line.png" />';
+	}
+	
+	// if using custom images
+	else {
+	
+		// show custom image
+		$htmlShareButtons .= '<img title="LINE" class="ssba" src="' . $arrSettings['ssba_custom_line'] . '" alt="LINE" />';
 	}
 	
 	// close href

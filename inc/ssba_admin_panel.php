@@ -622,7 +622,7 @@ function getAvailableSSBA($strSelectedSSBA) {
 	$arrSelectedSSBA = explode(',', $strSelectedSSBA);
 	
 	// create array of all available buttons
-	$arrAllAvailableSSBA = array('buffer', 'diggit', 'email', 'facebook', 'flattr', 'google', 'linkedin', 'pinterest', 'reddit', 'stumbleupon', 'tumblr', 'twitter');
+	$arrAllAvailableSSBA = array('buffer', 'diggit', 'email', 'facebook', 'flattr', 'google', 'linkedin', 'pinterest', 'reddit', 'stumbleupon', 'tumblr', 'twitter', 'line');
 	
 	// explode saved include list and add to a new array
 	$arrAvailableSSBA = array_diff($arrAllAvailableSSBA, $arrSelectedSSBA);
