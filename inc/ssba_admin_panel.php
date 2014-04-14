@@ -19,6 +19,7 @@ function ssba_admin_panel($arrSettings, $htmlSettingsSaved) {
 			$htmlShareButtonsForm .= '<a href="http://www.simplesharebuttons.com/wordpress-faq/" target="_blank">FAQ</a>';
 			$htmlShareButtonsForm .= '<a href="http://www.simplesharebuttons.com/showcase/" target="_blank">Showcase</a>';
 			$htmlShareButtonsForm .= '<a href="http://www.simplesharebuttons.com/donate/" target="_blank">Donate</a>';
+			$htmlShareButtonsForm .= '<a href="https://github.com/davidsneal/simplesharebuttons" target="_blank">GitHub</a>';
 		$htmlShareButtonsForm .= '</div>';
 		
 	// close header
@@ -153,6 +154,13 @@ function ssba_admin_panel($arrSettings, $htmlSettingsSaved) {
 						$htmlShareButtonsForm .= '<td>';
 						$htmlShareButtonsForm .= '<input id="ssba_custom_pinterest" type="text" size="50" name="ssba_custom_pinterest" value="' . (isset($arrSettings['ssba_custom_pinterest']) ? $arrSettings['ssba_custom_pinterest'] : NULL)  . '" />';
 						$htmlShareButtonsForm .= '<input id="upload_pinterest_button" data-ssba-input="ssba_custom_pinterest" class="button customUpload" type="button" value="Upload Image" />';
+						$htmlShareButtonsForm .= '</td>';
+					$htmlShareButtonsForm .= '</tr>';
+					$htmlShareButtonsForm .= '<tr valign="top">';
+						$htmlShareButtonsForm .= '<th scope="row" style="width: 120px;"><label>Print:</label></th>';
+						$htmlShareButtonsForm .= '<td>';
+						$htmlShareButtonsForm .= '<input id="ssba_custom_print" type="text" size="50" name="ssba_custom_print" value="' . (isset($arrSettings['ssba_custom_print']) ? $arrSettings['ssba_custom_print'] : NULL)  . '" />';
+						$htmlShareButtonsForm .= '<input id="upload_print_button" data-ssba-input="ssba_custom_print" class="button customUpload" type="button" value="Upload Image" />';
 						$htmlShareButtonsForm .= '</td>';
 					$htmlShareButtonsForm .= '</tr>';
 					$htmlShareButtonsForm .= '<tr valign="top">';
@@ -535,7 +543,7 @@ CODE;
 										<div class="author-shortcodes">
 											<div class="author-inner">
 												<div class="author-image">
-													<img src="' . plugins_url() . '/simple-share-buttons-adder/images/david.jpg" style="float: left; margin-right: 10px;" alt="">
+													<img src="' . plugins_url() . '/simple-share-buttons-adder/images/david.png" style="float: left; margin-right: 10px;" alt="">
 													<div class="author-overlay"></div>
 												</div> <!-- .author-image --> 
 												<div class="author-info">
@@ -622,7 +630,7 @@ function getAvailableSSBA($strSelectedSSBA) {
 	$arrSelectedSSBA = explode(',', $strSelectedSSBA);
 	
 	// create array of all available buttons
-	$arrAllAvailableSSBA = array('buffer', 'diggit', 'email', 'facebook', 'flattr', 'google', 'linkedin', 'pinterest', 'reddit', 'stumbleupon', 'tumblr', 'twitter', 'line');
+	$arrAllAvailableSSBA = array('buffer', 'diggit', 'email', 'facebook', 'flattr', 'google', 'linkedin', 'pinterest', 'print', 'reddit', 'stumbleupon', 'tumblr', 'twitter', 'line');
 	
 	// explode saved include list and add to a new array
 	$arrAvailableSSBA = array_diff($arrAllAvailableSSBA, $arrSelectedSSBA);
